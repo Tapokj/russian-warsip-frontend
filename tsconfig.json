@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "noEmit": true,
+    "target": "es6",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "src",
+    "paths": {
+      "@src/*": ["./*"],
+      "@shared/*": ["shared/*"],
+      "@app/*": ["app/*"],
+      "@pages/*": ["pages/*"],
+      "@processes/*": ["processes/*"],
+      "@features/*": ["features/*"],
+      "@entities/*": ["entities/*"],
+      "@widgets/*": ["widgets/*"]
+    },
+    "lib": ["es2019", "dom", "esnext.array"]
+  },
+  "include": ["src/**/*", "./**/*", "@types/types.d.ts"],
+  "exclude": ["**/node_modules/*"]
+}

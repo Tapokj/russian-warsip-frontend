@@ -1,0 +1,113 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["import", "@typescript-eslint", "@typescript-eslint/tslint", "react"/*, "jest"*/],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "react-app",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-explicit-any":  ["error", { "ignoreRestArgs": false }],
+    "@typescript-eslint/tslint/config": [
+      "error",
+      {
+        "rules": {
+          "ordered-imports": [
+            true,
+            {
+              "module-source-path": "full",
+              "grouped-imports": true,
+              "import-sources-order": "lowercase-first",
+              "groups": [
+                {
+                  "match": "^core-js/stable",
+                  "order": 1
+                },
+                {
+                  "match": "^react",
+                  "order": 2
+                },
+                {
+                  "name": "Components",
+                  "match": "^@components\/",
+                  "order": 20
+                },
+                {
+                  "name": "Pages",
+                  "match": "^@pages\/",
+                  "order": 30
+                },
+                {
+                  "name": "Hooks",
+                  "match": "^@hooks\/",
+                  "order": 40
+                },
+                {
+                  "name": "Models",
+                  "match": "^@models\/",
+                  "order": 50
+                },
+                {
+                  "name": "Assets",
+                  "match": "^@assets\/",
+                  "order": 60
+                },
+                {
+                  "name": "Utils",
+                  "match": "^@utils\/",
+                  "order": 70
+                },
+                {
+                  "name": "Parent directory",
+                  "match": "^[.][.]",
+                  "order": 80
+                },
+                {
+                  "name": "Current directory",
+                  "match": "^[.]",
+                  "order": 90
+                },
+                {
+                  "name": "Vendors & Packages",
+                  "match": "^[^\\.]",
+                  "order": 10
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "import/no-default-export": "warn",
+    "react/self-closing-comp": "warn",
+    "jsx-a11y/anchor-is-valid": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.tsx", "*.story.tsx"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
+}
